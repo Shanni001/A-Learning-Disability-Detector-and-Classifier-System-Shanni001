@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #2563EB; /* blue-600 - Trust-building blue for stability and credibility */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-primary-start: #1E3A8A; /* blue-800 - Deep Trust Blue for gradients */
+    --color-primary-end: #3B82F6; /* blue-500 - Lighter blue for gradient end */
+    
+    /* Secondary Colors */
+    --color-secondary: #059669; /* emerald-600 - Growth-celebrating green for progress and hope */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    --color-secondary-start: #059669; /* emerald-600 */
+    --color-secondary-end: #10B981; /* emerald-500 */
+    
+    /* Accent Colors */
+    --color-accent: #F59E0B; /* amber-500 - Warm attention-drawing amber for achievements */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Background Colors */
+    --color-background: #FAFBFC; /* gray-50 - Soft neutral canvas reducing visual stress */
+    --color-foreground: #1E293B; /* slate-800 - Clear reading without stark contrast */
+    --color-surface: #F1F5F9; /* slate-100 - Gentle elevation without harsh shadows */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1E293B; /* slate-800 */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1E293B; /* slate-800 */
+    
+    /* Muted Colors */
+    --color-muted: #F1F5F9; /* slate-100 */
+    --color-muted-foreground: #64748B; /* slate-500 - Supportive hierarchy maintaining readability */
+    
+    /* Border and Input */
+    --color-border: #E2E8F0; /* slate-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #2563EB; /* blue-600 */
+    
+    /* Status Colors */
+    --color-success: #10B981; /* emerald-500 - Encouraging confirmation building confidence */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #F59E0B; /* amber-500 - Gentle guidance without creating alarm */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    --color-error: #EF4444; /* red-500 - Helpful correction maintaining user dignity */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Brand Specific Colors */
+    --color-trust-blue: #1E3A8A; /* blue-800 - Deep Trust Blue */
+    --color-empowerment-green: #059669; /* emerald-600 - Empowerment Green */
+    --color-illumination-gold: #F59E0B; /* amber-500 - Illumination Gold */
+    --color-authority-purple: #6366F1; /* indigo-500 - Authority Purple */
+    --color-action-red: #DC2626; /* red-600 - Confident Action Red */
+    
+    /* Text Colors */
+    --color-text-primary: #1F2937; /* gray-800 - Professional Charcoal */
+    --color-text-secondary: #6B7280; /* gray-500 - Supportive Gray */
+    
+    /* Cultural Colors */
+    --color-earth-tone: #8B4513; /* saddle-brown */
+    --color-sunrise-orange: #FF6B35; /* orange-red */
+    
+    /* Spacing System - Golden Ratio Based */
+    --spacing-xs: 8px;
+    --spacing-sm: 13px;
+    --spacing-md: 21px;
+    --spacing-lg: 34px;
+    --spacing-xl: 55px;
+    
+    /* Border Radius */
+    --radius: 8px;
+    
+    /* Shadows */
+    --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-interactive: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-elevated: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Animation Durations */
+    --duration-fast: 300ms;
+    --duration-normal: 400ms;
+    --duration-slow: 600ms;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Gradient Storytelling System */
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-primary-end) 100%);
+    transition: all 0.8s ease-in-out;
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, var(--color-secondary-start) 0%, var(--color-secondary-end) 100%);
+    transition: all 0.8s ease-in-out;
+  }
+  
+  .gradient-illumination {
+    background: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-secondary-end) 100%);
+    transition: all 0.8s ease-in-out;
+  }
+  
+  /* Breathing Animation for Assessment Entry */
+  .breathing-animation {
+    animation: breathe 4s ease-in-out infinite;
+  }
+  
+  @keyframes breathe {
+    0%, 100% { transform: scale(1.0); }
+    50% { transform: scale(1.05); }
+  }
+  
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+  
+  .glow-secondary {
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+  }
+  
+  /* Cultural Pattern Overlay */
+  .cultural-pattern {
+    position: relative;
+  }
+  
+  .cultural-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23059669' fill-opacity='0.05'%3E%3Cpolygon points='30,0 60,30 30,60 0,30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  /* Micro-interaction Empowerment */
+  .empowerment-hover {
+    transition: all var(--duration-fast) ease-out;
+  }
+  
+  .empowerment-hover:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  .empowerment-hover:active {
+    transform: scale(0.98);
+  }
+  
+  /* Progress Illumination */
+  .progress-illumination {
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    transform-origin: left;
+    transition: transform var(--duration-normal) ease-out;
+  }
+  
+  /* Trust Building Visual Hierarchy */
+  .trust-card {
+    transform: rotate(-1deg);
+    transition: all var(--duration-fast) ease-out;
+  }
+  
+  .trust-card:nth-child(even) {
+    transform: rotate(1deg);
+  }
+  
+  .trust-card:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
+  }
+}
+
+@layer utilities {
+  /* Spacing Utilities - Golden Ratio */
+  .space-xs { margin: var(--spacing-xs); }
+  .space-sm { margin: var(--spacing-sm); }
+  .space-md { margin: var(--spacing-md); }
+  .space-lg { margin: var(--spacing-lg); }
+  .space-xl { margin: var(--spacing-xl); }
+  
+  .p-xs { padding: var(--spacing-xs); }
+  .p-sm { padding: var(--spacing-sm); }
+  .p-md { padding: var(--spacing-md); }
+  .p-lg { padding: var(--spacing-lg); }
+  .p-xl { padding: var(--spacing-xl); }
+  
+  /* Shadow Utilities */
+  .shadow-subtle { box-shadow: var(--shadow-subtle); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-interactive { box-shadow: var(--shadow-interactive); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  
+  /* Animation Utilities */
+  .duration-fast { transition-duration: var(--duration-fast); }
+  .duration-normal { transition-duration: var(--duration-normal); }
+  .duration-slow { transition-duration: var(--duration-slow); }
+  
+  /* Brand Color Utilities */
+  .text-trust-blue { color: var(--color-trust-blue); }
+  .text-empowerment-green { color: var(--color-empowerment-green); }
+  .text-illumination-gold { color: var(--color-illumination-gold); }
+  .text-authority-purple { color: var(--color-authority-purple); }
+  .text-action-red { color: var(--color-action-red); }
+  
+  .bg-trust-blue { background-color: var(--color-trust-blue); }
+  .bg-empowerment-green { background-color: var(--color-empowerment-green); }
+  .bg-illumination-gold { background-color: var(--color-illumination-gold); }
+  .bg-authority-purple { background-color: var(--color-authority-purple); }
+  .bg-action-red { background-color: var(--color-action-red); }
+  
+  /* Accessibility Utilities */
+  .focus-visible:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+  
+  /* Mobile Optimization */
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}

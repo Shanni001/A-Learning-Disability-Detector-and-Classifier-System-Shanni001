@@ -1,0 +1,170 @@
+.auth-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.auth-left {
+  flex: 1;
+  background: linear-gradient(135deg, #4a90e2, #003366);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.auth-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.auth-left p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+ 
+  border-radius: 10px;      /* center vertically */
+  min-height: 100vh;             /* full viewport height */
+  width: 100vw;              /* full viewport width */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* optional bg */
+  background: white; 
+  overflow: auto;         /* form background */
+  
+}
+
+
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.auth-form input,
+.auth-form select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.auth-form button {
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #4a63e2;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+
+}
+
+
+.auth-form button:hover {
+  background: #003366;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.social-btn {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  background: white;
+}
+
+.google {
+  border-color: #db4437;
+  color: #db4437;
+}
+
+.microsoft {
+  border-color: #2f2f2f;
+  color: #2f2f2f;
+}
+
+.apple {
+  border-color: #000;
+  color: #000;
+}
+
+.switch-link {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+
+.auth-card h2 {
+color: #3c009d;
+font-size: 35px;
+font-weight: 500;
+text-align: center;
+}
+
+
+.auth-card h3 {
+color: #3c009d;
+font-size: 25px;
+font-weight: 300;
+text-align: center;
+}
+
+
+
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px; /* adjust as needed */
+  margin: 0 auto;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.social-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
