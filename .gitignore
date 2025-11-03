@@ -3,3 +3,11 @@ client_secret_*.json
 .env
 *.pptx
 .venv
+.DS_Store
+node_modules
+.idea
+package-lock.json
+/build
+.vscode/
+.idea/
+vite.config.*s.*
