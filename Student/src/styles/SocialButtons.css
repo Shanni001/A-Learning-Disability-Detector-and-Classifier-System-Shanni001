@@ -1,0 +1,36 @@
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+
+  
+  color: rgb(12, 3, 3);
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.social-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
