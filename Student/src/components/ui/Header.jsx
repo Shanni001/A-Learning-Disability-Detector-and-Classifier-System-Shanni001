@@ -166,15 +166,7 @@ const Header = ({ onMenuToggle, isMenuOpen = false }) => {
                 <span>Profile</span>
               </Button>
               
-              <Button
-                variant="default"
-                size="sm"
-                className="bg-gradient-primary hover:opacity-90 breathing-animation"
-              >
-                <Icon name="Plus" size={16} className="mr-2" />
-                <span className="hidden sm:inline">New Assessment</span>
-                <span className="sm:hidden">New</span>
-              </Button>
+              
             </div>
           </div>
         </div>

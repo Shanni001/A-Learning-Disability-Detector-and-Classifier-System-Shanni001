@@ -1,4 +1,3 @@
-// src/pages/registration/components/RegistrationForm.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../../../contexts/AuthContext";
@@ -12,7 +11,7 @@ import SocialLoginButtons from 'components/ui/SocialLoginButtons';
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
-  const { signUp, signInWithProvider } = useAuth();
+  const { signUp } = useAuth();
 
   const [role, setRole] = useState('');
   const [formData, setFormData] = useState({});
@@ -35,16 +34,12 @@ const RegistrationForm = () => {
 
     try {
       const { email, password, ...rest } = formData;
-
-      // Combine role and form data
       const userData = { role, ...rest };
 
-      // ✅ Correct number of arguments
       await signUp(email, password, userData);
 
       alert('Registration successful! Please check your email to confirm your account.');
 
-      // Optional redirect (after email confirmation, context will auto-redirect)
       if (role === 'student') navigate('/multi-role-dashboard');
       else if (role === 'teacher') navigate('/dashboard/teacher');
     } catch (error) {
@@ -52,14 +47,6 @@ const RegistrationForm = () => {
       alert('Registration failed: ' + (error.message || 'Unexpected error'));
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleSocialLogin = async (provider) => {
-    try {
-      await signInWithProvider(provider);
-    } catch (error) {
-      alert('Social login failed: ' + error.message);
     }
   };
 
@@ -99,7 +86,7 @@ const RegistrationForm = () => {
             {loading ? 'Creating Account...' : 'Create Account'}
           </Button>
 
-          <SocialLoginButtons onSocialLogin={handleSocialLogin} />
+          <SocialLoginButtons />
         </>
       )}
     </form>

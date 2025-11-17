@@ -3,9 +3,9 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, EmailStr
 from ..utils.supabase_client import supabase
+import json
 
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
-
 
 class RegisterRequest(BaseModel):
     id: str
@@ -35,7 +35,6 @@ async def register_user(data: RegisterRequest):
             except json.JSONDecodeError:
                 grade_levels = [grade_levels]
 
-        # ✅ Prepare user data
         user_data = {
             "id": data.id,
             "email": data.email,
@@ -48,14 +47,12 @@ async def register_user(data: RegisterRequest):
             "parent_phone": data.parent_phone,
             "teacher_id": data.teacher_id,
             "primary_subject": data.primary_subject,
-            "grade_levels": data.grade_levels,
+            "grade_levels": grade_levels,  # ✅ always a clean list
             "experience": data.experience,
         }
 
-        # ✅ Insert into user_profiles
         result = supabase.table("user_profiles").insert(user_data).execute()
 
-        # Check for Supabase errors
         if hasattr(result, "error") and result.error:
             raise HTTPException(status_code=400, detail=f"Supabase error: {result.error.message}")
 

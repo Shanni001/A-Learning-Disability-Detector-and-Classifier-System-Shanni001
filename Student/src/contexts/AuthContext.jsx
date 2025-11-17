@@ -14,17 +14,31 @@ export const AuthProvider = ({ children }) => {
 
   // ✅ Listen to Supabase Auth changes
   useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user || null);
-    });
+  const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+    if (session?.user) {
+      const metadata = session.user.user_metadata || {};
 
-    return () => {
-      authListener.subscription.unsubscribe();
-    };
-  }, []);
+      setUser({
+        id: session.user.id,
+        email: session.user.email,
+        full_name: metadata.fullName || metadata.full_name || "",
+        role: metadata.role || "",
+        phone: metadata.phone || "",
+        school: metadata.school || ""
+      });
+    } else {
+      setUser(null);
+    }
+  });
+
+  return () => authListener.subscription.unsubscribe();
+}, []);
+
 
   // ✅ SIGN UP
   // src/contexts/AuthContext.jsx
+
+  
 
 const signUp = async (email, password, userData) => {
   try {

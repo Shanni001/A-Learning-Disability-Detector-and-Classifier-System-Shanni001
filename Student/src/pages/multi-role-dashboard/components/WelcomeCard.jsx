@@ -6,17 +6,20 @@ const WelcomeCard = ({ userProfile, currentRole }) => {
   const getWelcomeMessage = () => {
     const timeOfDay = new Date()?.getHours() < 12 ? 'morning' : new Date()?.getHours() < 18 ? 'afternoon' : 'evening';
     
+    const name = userProfile?.full_name || "there";
+
     switch (currentRole) {
       case 'student':
         return {
-          greeting: `Good ${timeOfDay}, ${userProfile?.name}!`,
+           greeting: `Good ${timeOfDay}, ${name}!`,
+         
           message: "Ready to discover your learning superpowers today?",
           cta: "Start New Assessment",
           icon: "Sparkles"
         };
       case 'teacher':
         return {
-          greeting: `Good ${timeOfDay}, ${userProfile?.name}!`,
+          greeting: `Good ${timeOfDay}, ${userProfile.full_name}!`,
           message: "Let's help your students shine brighter today.",
           cta: "Create Assessment",
           icon: "BookOpen"
@@ -64,8 +67,7 @@ const WelcomeCard = ({ userProfile, currentRole }) => {
               
               {currentRole === 'student' && (
                 <div className="flex items-center space-x-2 text-white/80">
-                  <Icon name="Trophy" size={16} />
-                  <span className="text-sm">Level 5 Explorer</span>
+                  
                 </div>
               )}
             </div>

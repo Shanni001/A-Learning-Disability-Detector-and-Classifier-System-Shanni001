@@ -104,14 +104,7 @@ const AssessmentFilters = ({
       </div>
       {/* Quick Filter Buttons */}
       <div className="flex flex-wrap gap-2 mb-4">
-        <Button
-          variant={activeFilters?.category === 'adhd' ? 'default' : 'outline'}
-          size="sm"
-          onClick={() => handleFilterChange('category', activeFilters?.category === 'adhd' ? 'all' : 'adhd')}
-          className="text-xs"
-        >
-          ADHD
-        </Button>
+        
         <Button
           variant={activeFilters?.category === 'dyslexia' ? 'default' : 'outline'}
           size="sm"
@@ -136,14 +129,7 @@ const AssessmentFilters = ({
         >
           Dysgraphia
         </Button>
-        <Button
-          variant={activeFilters?.status === 'not-started' ? 'default' : 'outline'}
-          size="sm"
-          onClick={() => handleFilterChange('status', activeFilters?.status === 'not-started' ? 'all' : 'not-started')}
-          className="text-xs"
-        >
-          New
-        </Button>
+        
       </div>
       {/* Expanded Filters */}
       {isExpanded && (

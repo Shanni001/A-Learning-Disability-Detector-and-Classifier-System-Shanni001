@@ -4,33 +4,8 @@ import Button from '../../../components/ui/Button';
 
 const QuickStartSection = ({ onQuickStart, recentAssessments = [] }) => {
   const quickStartOptions = [
-    {
-      id: 'comprehensive',
-      title: 'Comprehensive Screening',
-      description: 'Complete assessment covering all four learning disabilities',
-      icon: 'Brain',
-      duration: '45-60 min',
-      color: 'bg-gradient-primary',
-      textColor: 'text-white'
-    },
-    {
-      id: 'targeted',
-      title: 'Targeted Assessment',
-      description: 'Focus on specific learning challenges',
-      icon: 'Target',
-      duration: '15-25 min',
-      color: 'bg-gradient-secondary',
-      textColor: 'text-white'
-    },
-    {
-      id: 'quick',
-      title: 'Quick Screening',
-      description: 'Brief initial assessment for early indicators',
-      icon: 'Zap',
-      duration: '5-10 min',
-      color: 'bg-gradient-illumination',
-      textColor: 'text-white'
-    }
+    
+    
   ];
 
   return (
@@ -42,7 +17,7 @@ const QuickStartSection = ({ onQuickStart, recentAssessments = [] }) => {
             <span>Quick Start</span>
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            Begin your assessment journey with our guided options
+            Begin your assessment journey 
           </p>
         </div>
         
@@ -116,24 +91,7 @@ const QuickStartSection = ({ onQuickStart, recentAssessments = [] }) => {
         </div>
       )}
       {/* Help Section */}
-      <div className="mt-6 p-4 bg-surface rounded-lg border border-border">
-        <div className="flex items-start space-x-3">
-          <div className="w-8 h-8 bg-illumination-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-            <Icon name="Lightbulb" size={16} className="text-illumination-gold" />
-          </div>
-          <div className="flex-1">
-            <h4 className="text-sm font-medium text-foreground mb-1">
-              New to assessments?
-            </h4>
-            <p className="text-xs text-muted-foreground mb-2">
-              Start with our Quick Screening to get familiar with the process, then move to more comprehensive assessments.
-            </p>
-            <Button variant="link" size="sm" className="p-0 h-auto text-xs">
-              Learn more about our assessment process
-            </Button>
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 };

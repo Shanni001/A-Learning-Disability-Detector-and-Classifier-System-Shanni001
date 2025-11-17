@@ -231,38 +231,10 @@ const AssessmentPortal = () => {
                   </p>
                 </div>
 
-                <div className="flex items-center space-x-3">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
-                    iconName={viewMode === 'grid' ? 'List' : 'Grid3X3'}
-                  >
-                    {viewMode === 'grid' ? 'List View' : 'Grid View'}
-                  </Button>
-                  
-                  <Button
-                    variant="default"
-                    className="bg-gradient-primary breathing-animation"
-                    iconName="Plus"
-                    iconPosition="left"
-                  >
-                    New Assessment
-                  </Button>
-                </div>
+                
               </div>
 
-              {/* Search Bar */}
-              <div className="relative max-w-md">
-                <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                <input
-                  type="text"
-                  placeholder="Search assessments..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e?.target?.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-fast"
-                />
-              </div>
+              
             </div>
 
             {/* Quick Start Section */}

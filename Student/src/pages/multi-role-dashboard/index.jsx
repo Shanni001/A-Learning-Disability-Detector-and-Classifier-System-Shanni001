@@ -11,7 +11,7 @@ import WelcomeCard from './components/WelcomeCard';
 import QuickActions from './components/QuickActions';
 import ProgressOverview from './components/ProgressOverview';
 import RecentActivity from './components/RecentActivity';
-import NotificationCenter from './components/NotificationCenter';
+import { useAuth } from "../../contexts/AuthContext";
 import CustomizableWidgets from './components/CustomizableWidgets';
 
 const MultiRoleDashboard = () => {
@@ -19,18 +19,43 @@ const MultiRoleDashboard = () => {
   const [currentRole, setCurrentRole] = useState('student');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [userProfile, setUserProfile] = useState({
-    name: 'Alex Johnson',
-    email: 'alex.johnson@email.com',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-    childName: 'Emma Johnson', // For parent role
-    school: 'Nairobi Primary School',
-    grade: 'Grade 5',
-    joinDate: '2024-01-15'
-  });
+  
+const { user } = useAuth();   // <-- real user from Supabase
+
+const [userProfile, setUserProfile] = useState(null);
+
+useEffect(() => {
+  if (user) {
+    setUserProfile({
+      full_name: user.full_name,
+      email: user.email,
+      school: user.school,
+      
+    });
+  }
+}, [user]);
+
+// 🔥 Load preferences
+  useEffect(() => {
+    const savedRole = localStorage.getItem("angazalearn-role");
+    if (savedRole) setCurrentRole(savedRole);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("angazalearn-role", currentRole);
+  }, [currentRole]);
+
+// 🚨 PREVENT CRASH: Show loading page until userProfile is set
+  if (!userProfile) {
+    return (
+      <div className="flex items-center justify-center min-h-screen text-xl">
+        Loading your profile...
+      </div>
+    );
+  }
 
   // Load saved preferences
-  useEffect(() => {
+  /*useEffect(() => {
     const savedRole = localStorage.getItem('angazalearn-role');
     const savedTheme = localStorage.getItem('angazalearn-theme');
     const savedSidebar = localStorage.getItem('angazalearn-sidebar');
@@ -38,10 +63,10 @@ const MultiRoleDashboard = () => {
     if (savedRole) setCurrentRole(savedRole);
     if (savedTheme) setIsDarkMode(savedTheme === 'dark');
     if (savedSidebar) setSidebarCollapsed(savedSidebar === 'collapsed');
-  }, []);
+  }, []);*/
 
   // Save preferences
-  useEffect(() => {
+ /* useEffect(() => {
     localStorage.setItem('angazalearn-role', currentRole);
   }, [currentRole]);
 
@@ -51,30 +76,12 @@ const MultiRoleDashboard = () => {
 
   useEffect(() => {
     localStorage.setItem('angazalearn-sidebar', sidebarCollapsed ? 'collapsed' : 'expanded');
-  }, [sidebarCollapsed]);
+  }, [sidebarCollapsed]);*/
 
   const handleRoleChange = (newRole) => {
     setCurrentRole(newRole);
     // Update user profile based on role
-    if (newRole === 'teacher') {
-      setUserProfile(prev => ({
-        ...prev,
-        name: 'Sarah Johnson',
-        email: 'sarah.johnson@school.edu'
-      }));
-    } else if (newRole === 'parent') {
-      setUserProfile(prev => ({
-        ...prev,
-        name: 'Michael Thompson',
-        email: 'michael.thompson@email.com'
-      }));
-    } else {
-      setUserProfile(prev => ({
-        ...prev,
-        name: 'Alex Johnson',
-        email: 'alex.johnson@email.com'
-      }));
-    }
+    
   };
 
   const handleQuickAction = (path) => {
@@ -153,20 +160,7 @@ const MultiRoleDashboard = () => {
               </Button>
               
               {/* Profile Menu */}
-              <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-muted transition-colors duration-fast cursor-pointer">
-                <div className="w-8 h-8 rounded-full overflow-hidden">
-                  <img 
-                    src={userProfile?.avatar} 
-                    alt={userProfile?.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="hidden sm:block text-right">
-                  <p className="text-sm font-medium text-foreground">{userProfile?.name}</p>
-                  <p className="text-xs text-muted-foreground capitalize">{currentRole}</p>
-                </div>
-                <Icon name="ChevronDown" size={16} className="text-muted-foreground" />
-              </div>
+              
             </div>
           </div>
 
@@ -178,7 +172,9 @@ const MultiRoleDashboard = () => {
               <WelcomeCard 
                 userProfile={userProfile} 
                 currentRole={currentRole} 
-              />
+                 />
+
+              
               
               {/* Quick Actions */}
               <QuickActions 
@@ -208,8 +204,7 @@ const MultiRoleDashboard = () => {
                 userProfile={userProfile} 
               />
               
-              {/* Notification Center */}
-              <NotificationCenter currentRole={currentRole} />
+             
               
               {/* Recent Activity */}
               <RecentActivity currentRole={currentRole} />
