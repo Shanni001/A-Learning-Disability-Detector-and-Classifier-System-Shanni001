@@ -14,7 +14,7 @@ const WelcomeCard = ({ userProfile, currentRole }) => {
            greeting: `Good ${timeOfDay}, ${name}!`,
          
           message: "Ready to discover your learning superpowers today?",
-          cta: "Start New Assessment",
+          //cta: "Start New Assessment",
           icon: "Sparkles"
         };
       case 'teacher':
@@ -56,14 +56,7 @@ const WelcomeCard = ({ userProfile, currentRole }) => {
             <p className="text-white/90 mb-4 max-w-md">{welcome?.message}</p>
             
             <div className="flex items-center space-x-4">
-              <Button
-                variant="secondary"
-                className="bg-white text-blue-600 hover:bg-white/90"
-                iconName="ArrowRight"
-                iconPosition="right"
-              >
-                {welcome?.cta}
-              </Button>
+            
               
               {currentRole === 'student' && (
                 <div className="flex items-center space-x-2 text-white/80">

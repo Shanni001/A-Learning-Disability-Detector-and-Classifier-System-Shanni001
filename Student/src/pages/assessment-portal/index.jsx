@@ -207,11 +207,7 @@ const AssessmentPortal = () => {
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header onMenuToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
-        <Sidebar 
-          isCollapsed={sidebarCollapsed} 
-          onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
-        />
-
+        
         <main className={`transition-all duration-normal ${
           sidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'
         } pt-16`}>
@@ -330,36 +326,12 @@ const AssessmentPortal = () => {
               <div className="space-y-6">
                 <ProgressTracker />
                 <AssessmentStats />
-                <RecentActivity onViewAll={handleViewAllActivity} />
+               
               </div>
             </div>
 
             {/* Help Section */}
-            <div className="bg-gradient-illumination rounded-xl p-6 text-white cultural-pattern">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Icon name="HelpCircle" size={24} className="text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-2">Need Help Getting Started?</h3>
-                  <p className="text-white/90 mb-4">
-                    Our assessment portal is designed to be intuitive and engaging. Each assessment adapts to your responses, 
-                    ensuring accurate results while maintaining a positive experience.
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <Button variant="secondary" size="sm">
-                      Watch Tutorial
-                    </Button>
-                    <Button variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10">
-                      Contact Support
-                    </Button>
-                    <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
-                      View FAQ
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </main>
       </div>

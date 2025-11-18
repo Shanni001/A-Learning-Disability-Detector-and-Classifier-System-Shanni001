@@ -112,10 +112,7 @@ useEffect(() => {
   return (
     <div className={`min-h-screen bg-background ${isDarkMode ? 'dark' : ''}`}>
       <Header onMenuToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
-      <Sidebar 
-        isCollapsed={sidebarCollapsed} 
-        onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
-      />
+            
       <main className={`transition-all duration-normal ${
         sidebarCollapsed ? 'ml-16' : 'ml-64'
       } pt-16`}>
@@ -206,8 +203,7 @@ useEffect(() => {
               
              
               
-              {/* Recent Activity */}
-              <RecentActivity currentRole={currentRole} />
+              
               
               {/* Quick Stats Card */}
               <div className="bg-white rounded-xl shadow-soft border border-border p-6">
